@@ -1,9 +1,15 @@
-import React, { useEffect} from 'react';
+import React from 'react';
 import Logo from '../imgs/Abstrakt logo White.png'
 import './heading.css'
 import { Link } from 'react-router-dom';
+import Modal from '../Components/Modal.jsx';
+import { showModal, setShowModal } from '../Components/Modal.jsx'
 
 const Nav = () => {
+
+    const openModal = () => {
+        setShowModal(prev => !prev);
+      };
 
     function scrollToTop(){
         document.documentElement.scrollTop = 0;
@@ -23,7 +29,7 @@ const Nav = () => {
                         <li className="nav__link">
                             <p href="">Gallery</p>
                         </li>
-                        <button className='contact__btn btn'>Contact Us</button>
+                        <button className='contact__btn btn' >Contact Us</button>
                     </ul>
 
                 </div>

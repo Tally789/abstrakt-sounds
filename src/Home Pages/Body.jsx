@@ -1,4 +1,4 @@
-import { getByPlaceholderText } from '@testing-library/react';
+
 import React from 'react';
 import  { Parallax }  from 'react-parallax'
 import { Link } from 'react-router-dom';
