@@ -5,9 +5,10 @@ import Services from './Services';
 import { useState } from 'react'
 import Modal from './Components/Modal';
 
-function App() {
+const App = () => {
 
 const [showModal, setShowModal] = useState(false);
+
 
   return (
     <Router>
@@ -16,8 +17,8 @@ const [showModal, setShowModal] = useState(false);
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />
       </Routes>
-        </div>
-        <Modal showModal={showModal} setShowModal={setShowModal} />
+      </div>
+      { showModal && <Modal />}
     </Router>
   );
 }

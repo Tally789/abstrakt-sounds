@@ -3,8 +3,13 @@ import { useState } from 'react';
 import { useSpring, animated } from 'react-spring';
 import { MdClose } from 'react-icons/md';
 import './Modal.css'
+import { showModal } from '../App'
 
-export const Modal = ({ showModal, setShowModal }) => {
+const Modal = ({ showModal, setShowModal }) => {
+
+  function openModal() {
+    setShowModal(prev => !prev);
+  }
 
     const modalRef = useRef();
 
@@ -19,8 +24,7 @@ export const Modal = ({ showModal, setShowModal }) => {
 
     return (
         <>
-      {showModal ? (
-          <animated.div style={animation}>
+          {showModal ? (<animated.div style={animation}>
               <div className="modal__wrapper" showModal={showModal}>
                   <div className="modal__left">
                       <h1>YOoooo</h1>
@@ -30,10 +34,9 @@ export const Modal = ({ showModal, setShowModal }) => {
                     <p>Get exclusive access to our next launch.</p>
                     <button>Join Now</button>
                   </div>
-                  <MdClose onClick={() => setShowModal(prev => !prev)} className="closeModalButton"/>
+                  <MdClose onClick={ openModal } className="closeModalButton"/>
               </div>
-          </animated.div>
-      ) : null}
+          </animated.div>) : null }
     </>
     );
 }
